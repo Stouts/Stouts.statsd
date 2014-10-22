@@ -1,8 +1,9 @@
 Stouts.statsd
 =============
 
-[![Build Status](https://travis-ci.org/Stouts/Stouts.statsd.png)](https://travis-ci.org/Stouts/Stouts.statsd)
-[![Stories in Ready](https://badge.waffle.io/Stouts/Stouts.statsd.svg?label=ready&title=Ready)](http://waffle.io/Stouts/Stouts.statsd)
+[![Build Status](http://img.shields.io/travis/Stouts/Stouts.statsd.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.statsd)
+[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.statsd-blue.svg?style=flat-square)](https://galaxy.statsd.com/list#/roles/1969)
+[![Tag](http://img.shields.io/github/tag/Stouts/Stouts.statsd.svg?style=flat-square)]()
 
 Ansible role which help you with:
 
