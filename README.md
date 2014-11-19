@@ -2,8 +2,7 @@ Stouts.statsd
 =============
 
 [![Build Status](http://img.shields.io/travis/Stouts/Stouts.statsd.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.statsd)
-[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.statsd-blue.svg?style=flat-square)](https://galaxy.statsd.com/list#/roles/1969)
-[![Tag](http://img.shields.io/github/tag/Stouts/Stouts.statsd.svg?style=flat-square)]()
+[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.statsd-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/1969)
 
 Ansible role which help you with:
 
@@ -17,7 +16,7 @@ statsd_home: /opt/statsd            # Where to install
 
 statsd_port: 8125                   # StatsD listening port
 statsd_graphiteHost: 127.0.0.1      # Hostname or IP of Graphite server
-statsd_graphitePort: 2003           # Port of Graphite server
+statsd_graphitePort: 2003           # Line Receiver port of Graphite (Carbon)
 statsd_backends:                    # Enabled backends
 - ./backends/graphite
 statsd_debug: false

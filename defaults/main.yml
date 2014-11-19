@@ -5,7 +5,7 @@ statsd_home: /opt/statsd            # Where to install
 
 statsd_port: 8125                   # StatsD listening port
 statsd_graphiteHost: 127.0.0.1      # Hostname or IP of Graphite server
-statsd_graphitePort: 2003           # Port of Graphite server
+statsd_graphitePort: 2003           # Line Receiver port of Graphite (Carbon)
 statsd_backends:                    # Enabled backends
 - ./backends/graphite
 statsd_debug: false
@@ -22,5 +22,3 @@ statsd_graphite:
   legacyNamespace: false
 
 statsd_additional_options: {}       # Setup additional options
-                                    
-
