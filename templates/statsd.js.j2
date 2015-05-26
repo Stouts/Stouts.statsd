@@ -116,7 +116,12 @@ Optional Variables:
 , flushInterval: {{ statsd_flushInterval|to_nice_json }}
 , percentThreshold: {{ statsd_percentThreshold|to_nice_json }}
 , flush_counts: {{ statsd_flush_counts|to_nice_json }}
+
+{% if statsd_graphite_raw is defined %}
+, graphite: {{ statsd_graphite_raw }}
+{% else %}
 , graphite: {{ statsd_graphite|to_nice_json }}
+{% endif %}
 {% for name, value in statsd_additional_options.items() %}
 , {{name}}: {{value|to_nice_json}}
 {% endfor %}
