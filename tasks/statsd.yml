@@ -7,7 +7,7 @@
   npm: name=statsd path={{statsd_home}}
 
 - name: Configure upstart
-  template: src=upstart.conf.j2 dest=/etc/init/statsd.conf
+  template: src=upstart.conf.j2 dest=/etc/init/{{statsd_title}}.conf
   notify:
   - statsd restart
 
@@ -17,4 +17,4 @@
   - statsd restart
 
 - name: Ensure that Statsd is started
-  service: name=statsd state=started enabled=yes
+  service: name={{statsd_title}} state=started enabled=yes
