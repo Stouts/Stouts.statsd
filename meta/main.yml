@@ -1,6 +1,6 @@
 ---
 
-dependencies: []
+dependencies: ['Stouts.nodejs']
 
 galaxy_info:
   author: klen
