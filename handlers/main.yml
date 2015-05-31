@@ -1,4 +1,4 @@
 ---
 
-- name: statsd restart
+- name: "{{statsd_title}} restart"
   service: name={{statsd_title}} state=restarted
