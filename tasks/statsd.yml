@@ -6,6 +6,10 @@
 - name: Install statsd
   npm: name=statsd path={{statsd_home}}
 
+- name: Install extra NPM dependencies
+  npm: name={{item}} path={{statsd_home}}
+  with_items: statsd_extra_dependencies
+
 - name: Configure upstart
   template: src=upstart.conf.j2 dest=/etc/init/statsd.conf
   notify:
