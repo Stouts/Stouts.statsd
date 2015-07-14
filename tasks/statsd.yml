@@ -1,7 +1,7 @@
 ---
 
-- name: install npm
-  apt:  pkg=npm state=present update_cache=true
+- name: Ensure that NPM is installed
+  apt:  name=npm
   
 - name: Prepare Statsd directory
   file: state=directory path={{statsd_home}}
@@ -9,15 +9,19 @@
 - name: Install statsd
   npm: name=statsd path={{statsd_home}}
 
+- name: Install extra NPM dependencies
+  npm: name={{item}} path={{statsd_home}}
+  with_items: statsd_extra_dependencies
+
 - name: Configure upstart
-  template: src=upstart.conf.j2 dest=/etc/init/statsd.conf
+  template: src=upstart.conf.j2 dest=/etc/init/{{statsd_title}}.conf
   notify:
-  - statsd restart
+  - "{{statsd_title}} restart"
 
 - name: Configure statsd
   template: src=statsd.js.j2 dest={{statsd_home}}/config.js
   notify:
-  - statsd restart
+  - "{{statsd_title}} restart"
 
 - name: Ensure that Statsd is started
-  service: name=statsd state=started enabled=yes
+  service: name={{statsd_title}} state=started enabled=yes

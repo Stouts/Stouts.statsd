@@ -12,4 +12,4 @@ respawn limit 10 5
 # Make a log available in /var/log/upstart/collectd.log
 console log
 
-exec /usr/bin/node {{statsd_home}}/node_modules/statsd/stats.js {{statsd_home}}/config.js
+exec {{statsd_nodejs}} {{statsd_home}}/node_modules/statsd/stats.js {{statsd_home}}/config.js

@@ -125,4 +125,7 @@ Optional Variables:
 {% for name, value in statsd_additional_options.items() %}
 , {{name}}: {{value|to_nice_json}}
 {% endfor %}
+{% for name, value in statsd_additional_options_raw.items() %}
+, {{name}}: {{value}}
+{% endfor %}
 }
