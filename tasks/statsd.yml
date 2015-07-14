@@ -1,7 +1,7 @@
 ---
 
-- name: install npm
-  apt:  pkg=npm state=present update_cache=true
+- name: Ensure that NPM is installed
+  apt:  name=npm
   
 - name: Prepare Statsd directory
   file: state=directory path={{statsd_home}}
