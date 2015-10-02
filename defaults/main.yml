@@ -20,7 +20,7 @@ statsd_flushInterval: 10000         # interval (in ms) to flush to Graphite
 statsd_percentThreshold: 90
 statsd_flush_counts: true           # send stats_counts metrics
 statsd_graphite:
-  legacyNamespace: false
+
 
 # As an alternative for statsd_graphite variable, you can give "raw" value which get used as is.
 # Handy if you want to use eg. require('os') in the configuration.
