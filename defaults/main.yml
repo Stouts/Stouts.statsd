@@ -3,6 +3,7 @@
 statsd_enabled: yes                 # Enable the role
 statsd_home: /opt/statsd            # Where to install
 statsd_nodejs: /usr/bin/nodejs      # Path to nodejs
+statsd_user: _statsd                # User used to start statsd / nodejs
 
 statsd_port: 8125                   # StatsD listening port
 statsd_graphiteHost: 127.0.0.1      # Hostname or IP of Graphite server
