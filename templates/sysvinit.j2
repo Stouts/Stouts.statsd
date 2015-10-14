@@ -21,7 +21,7 @@ fi
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="StatsD"
 NAME={{statsd_title}}
-USER={statsd_user}}
+USER={{statsd_user}}
 DAEMON=$NODE_BIN
 DAEMON_ARGS="{{statsd_home}}/node_modules/statsd/stats.js {{statsd_home}}/config.js"
 PIDFILE=/var/run/$NAME/$NAME.pid
@@ -46,6 +46,12 @@ if [ ! -d /var/run/$NAME ];
 then
   mkdir /var/run/$NAME
   chown $USER /var/run/$NAME
+fi
+# Create log dir on runtime
+if [ ! -d /var/log/$NAME ];
+then
+  mkdir /var/log/$NAME
+  chown $USER /var/log/$NAME
 fi
 
 #
