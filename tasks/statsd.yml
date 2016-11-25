@@ -1,7 +1,14 @@
 ---
 
+- name: Check NPM version
+  shell:  npm -v
+  register: npm_version
+  ignore_errors: true
+  changed_when: false
+
 - name: Ensure that NPM is installed
   apt:  name=npm update_cache=yes
+  when: npm_version.rc != 0
   
 - name: Prepare Statsd directory
   file: state=directory path={{statsd_home}}
@@ -11,7 +18,7 @@
 
 - name: Install extra NPM dependencies
   npm: name={{item}} path={{statsd_home}}
-  with_items: statsd_extra_dependencies
+  with_items: "{{statsd_extra_dependencies}}"
 
 - name: Create node user
   user: name={{statsd_user}} state=present shell=/bin/false system=yes
