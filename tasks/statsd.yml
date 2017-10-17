@@ -1,8 +1,13 @@
 ---
 
+- shell: dpkg-query -W 'npm'
+  ignore_errors: True
+  register: has_npm
+
 - name: Ensure that NPM is installed
   apt:  name=npm update_cache=yes
-  
+  when: has_npm|failed
+
 - name: Prepare Statsd directory
   file: state=directory path={{statsd_home}}
 
