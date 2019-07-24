@@ -23,7 +23,7 @@
 
 - name: Configure upstart
   template: src=upstart.conf.j2 dest=/etc/init/{{statsd_title}}.conf
-  when: ansible_distribution=="Ubuntu" and ansible_distribution_major_version < 15
+  when: ansible_distribution=="Ubuntu" and ansible_distribution_major_version is version_compare('15', '>=')
   notify:
   - "{{statsd_title}} restart"
 
